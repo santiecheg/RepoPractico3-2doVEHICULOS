@@ -5,7 +5,7 @@ public class Barco:Vehiculo{
 
     private int tripulacion;
 
-    public int Tripulacion {get{return this.tripulacion;} set{value=this.tripulacion;}}
+    public int Tripulacion {get{return this.tripulacion;} set{this.tripulacion = value;}}
 
 
     public Barco (string marca, string modelo, int velocidad, int tripulacion):base(marca,modelo,velocidad){
@@ -35,7 +35,7 @@ public class Barco:Vehiculo{
 
     public override void MostrarInfo()
     {
-        Console.WriteLine($"Auto: {Marca} modelo: {Modelo}");
+        Console.WriteLine($"Barco: {Marca} modelo: {Modelo}");
         Console.WriteLine($"Se necesita una tripulación Mínima de: {tripulacion}");
         base.MostrarInfo();
     }

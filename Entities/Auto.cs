@@ -5,7 +5,7 @@ public class Auto:Vehiculo{
 
     private string patente;
 
-    public string Patente {get{return this.patente;} set{value=this.patente;}}
+    public string Patente {get{return this.patente;} set{this.patente = value;}}
 
 
     public Auto (string marca, string modelo, int velocidad, string patente):base(marca,modelo,velocidad){

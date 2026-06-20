@@ -44,7 +44,6 @@ Velocidad actual: 35 km/h
 
 */
 
-using System.Runtime.InteropServices;
 
 class Program {
 
@@ -60,18 +59,18 @@ class Program {
     {
         Console.WriteLine("Bienvenido (nuevamente) al gestor de vehículos (dos)");
 
-        Console.WriteLine("Ingrese la opción que desea realizar");
-
         int opcionControl=666;
 
         while (opcionControl != 0)
         {
+            
             Console.WriteLine("Opcion 1: Registrar Auto");
             Console.WriteLine("Opcion 2: Registrar Moto");
             Console.WriteLine("Opcion 3: Registrar Barco");
             Console.WriteLine("Opcion 4: Mostrar vehiculos registrados");
             Console.WriteLine("Opcion 5: Cerrar programa");
             
+            Console.WriteLine("\nIngrese la opción que desea realizar");
             int opcionUsuario = int.Parse(Console.ReadLine());
 
             switch (opcionUsuario)
@@ -152,11 +151,11 @@ class Program {
     static void MostrarVehiculos()
     {
         Console.WriteLine(" \n Mostrando vehiculos..");
-        foreach (Vehiculo c in listaVehiculos)        
-        {
-            Console.WriteLine(" - - - - - - - - - - - - - - - - - - -");
+        
+        foreach (Vehiculo c in listaVehiculos){
+            Console.WriteLine("--------------------");
             c.MostrarInfo();
-            Console.WriteLine(" - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("--------------------");
         }
     }
 
