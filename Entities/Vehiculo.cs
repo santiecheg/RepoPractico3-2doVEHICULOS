@@ -23,8 +23,10 @@ public abstract class Vehiculo
     }
 
     public virtual void MostrarInfo(){
-       
+        Console.Clear();
+        Console.WriteLine("Mostrando información.. \n");
         Console.WriteLine($"Velocidad actual: {Velocidad} km/h");
+        
         Console.WriteLine($"{Marca} acelera.. brum brum");
         Console.WriteLine($"Velocidad actual: "+Acelerar()+" km/h");
 

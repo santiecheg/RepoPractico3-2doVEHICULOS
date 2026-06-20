@@ -44,14 +44,120 @@ Velocidad actual: 35 km/h
 
 */
 
+using System.Runtime.InteropServices;
+
 class Program {
 
+
+    static List<Vehiculo> listaVehiculos = new List<Vehiculo>();
     static void Main(){
 
+        MostrarMenu();
+        
+    }
+
+    static void MostrarMenu()
+    {
         Console.WriteLine("Bienvenido (nuevamente) al gestor de vehículos (dos)");
 
-        
+        Console.WriteLine("Ingrese la opción que desea realizar");
 
+        int opcionControl=666;
+
+        while (opcionControl != 0)
+        {
+            Console.WriteLine("Opcion 1: Registrar Auto");
+            Console.WriteLine("Opcion 2: Registrar Moto");
+            Console.WriteLine("Opcion 3: Registrar Barco");
+            Console.WriteLine("Opcion 4: Mostrar vehiculos registrados");
+            Console.WriteLine("Opcion 5: Cerrar programa");
+            
+            int opcionUsuario = int.Parse(Console.ReadLine());
+
+            switch (opcionUsuario)
+            {
+                
+                case 1:
+                    RegistrarAuto();
+                    break;
+                case 2:
+                    RegistrarMoto();
+                    break;
+                case 3:
+                    RegistrarBarco();
+                    break;
+                case 4:
+                    MostrarVehiculos();
+                    break;
+                case 5:
+                    Console.WriteLine("Gracias por usar softwares gatito");
+                    opcionControl=0;
+                    break;
+                default:
+                    Console.WriteLine("Opcion incorrecta, pruebe con una opción válida");
+                    break;    
+
+            }
+
+        }
+
+    }
+
+    static void RegistrarAuto()
+    {
+        string marca,modelo,patente;
+        Console.WriteLine("Ingrese marca del auto");
+        marca=Console.ReadLine();
+
+        Console.WriteLine("Ingrese modelo del auto");
+        modelo=Console.ReadLine();
+
+        Console.WriteLine("Ingrese patente del auto");
+        patente=Console.ReadLine();
+
+        listaVehiculos.Add(new Auto (marca,modelo,0,patente));
+
+    }
+
+    static void RegistrarMoto()
+    {
+         string marca,modelo,patente;
+        Console.WriteLine("Ingrese marca de la motocicleta");
+        marca=Console.ReadLine();
+
+        Console.WriteLine("Ingrese modelo de la motocicleta");
+        modelo=Console.ReadLine();
+
+        Console.WriteLine("Ingrese patente de la motocicleta");
+        patente=Console.ReadLine();
+
+        listaVehiculos.Add(new Moto (marca,modelo,0,patente));
+    }
+
+    static void RegistrarBarco()
+    {
+         string marca,modelo;
+        Console.WriteLine("Ingrese marca del barco");
+        marca=Console.ReadLine();
+
+        Console.WriteLine("Ingrese modelo del barco");
+        modelo=Console.ReadLine();
+
+        Console.WriteLine("Ingrese los tripulantes mínimos para operar esta embarcación");
+        int tripulacion=int.Parse(Console.ReadLine());
+
+        listaVehiculos.Add(new Barco (marca,modelo,0,tripulacion));
+    }
+
+    static void MostrarVehiculos()
+    {
+        Console.WriteLine(" \n Mostrando vehiculos..");
+        foreach (Vehiculo c in listaVehiculos)        
+        {
+            Console.WriteLine(" - - - - - - - - - - - - - - - - - - -");
+            c.MostrarInfo();
+            Console.WriteLine(" - - - - - - - - - - - - - - - - - - -");
+        }
     }
 
 }
