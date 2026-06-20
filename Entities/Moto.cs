@@ -1,0 +1,41 @@
+using System;
+
+public class Moto:Vehiculo{
+
+
+    private string patente;
+
+    public string Patente {get{return this.patente;} set{value=this.patente;}}
+
+
+    public Moto (string marca, string modelo, int velocidad, string patente):base(marca,modelo,velocidad){
+        this.patente=patente;
+    }
+
+
+
+    
+    public override int Frenar(){
+
+        Random rand = new Random();
+        Velocidad-= rand.Next(1,130);
+        return Velocidad;
+
+    }
+
+    public override int Acelerar() {
+
+
+        Random rand = new Random();
+        Velocidad+= rand.Next(1,200);
+        return Velocidad;
+
+    }
+
+    public override void MostrarInfo()
+    {
+        Console.WriteLine($"Motocicleta: {Marca} modelo: {Modelo}");
+        Console.WriteLine($"Patente: {Patente}");
+        base.MostrarInfo();
+    }
+}
